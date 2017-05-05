@@ -1,0 +1,11 @@
+NaCTeM Sentence Splitter
+Copyright 2017 The National Centre for Text Mining, University of Manchester
+
+Licensed under GNU Lesser General Public Release, Version 3.0
+
+This project includes:
+  Apache UIMA Base: uimaj-core under The Apache Software License, Version 2.0
+  EventTypeSystem under LGPL-3.0
+  Sentence Splitter under LGPL-3.0
+  U_compareTypeSystem under LGPL-3.0
+
