@@ -1,7 +1,6 @@
 /**
  * Sentence Splitter - Sentence splitter with output compatible with Scott Piao's version
- * Copyright © 2017 The National Centre for Text Mining (NaCTeM), University of
-							Manchester (jacob.carter@manchester.ac.uk)
+ * Copyright © 2017 The National Centre for Text Mining (NaCTeM) (jacob.carter@manchester.ac.uk)
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
