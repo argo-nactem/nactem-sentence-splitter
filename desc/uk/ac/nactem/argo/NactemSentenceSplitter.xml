@@ -22,7 +22,7 @@
 <analysisEngineDescription xmlns="http://uima.apache.org/resourceSpecifier">
   <frameworkImplementation>org.apache.uima.java</frameworkImplementation>
   <primitive>true</primitive>
-  <annotatorImplementationName>uk.ac.nactem.uima.sentence_splitter.NactemSentenceSplitter</annotatorImplementationName>
+  <annotatorImplementationName>uk.ac.nactem.argo.sentencesplitter.NactemSentenceSplitter</annotatorImplementationName>
   <analysisEngineMetaData>
     <name>Cafetiere Sentence Splitter</name>
     <description>Uses a set of heuristics and patterns to find sentence boundaries. Works with English.</description>
