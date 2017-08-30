@@ -1,0 +1,13 @@
+UIMAFIT TYPE SYSTEM DETECTION 
+
+The META-INF/org.apache.uima.fit/types.txt file contains the paths to the XML descriptor files,
+defining the UIMA type systems, used by this component.
+
+It is required by uimaFit to automatically detect type systems when running a pipeline.
+
+Ideally each JAR file containing type system descriptors should include a types.txt file, pointing
+to the descriptors in that JAR file, to avoid having to declare a types.txt file within a component.
+
+The type systems available in Argo do not have types.txt files yet, hence the need for this file here.
+
+To learn more about uimaFit handles type system detection please visit https://goo.gl/YjpeUq [uima.apache.org]
