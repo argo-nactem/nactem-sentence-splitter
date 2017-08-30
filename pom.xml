@@ -24,12 +24,12 @@
 	<parent>
 		<groupId>uk.ac.nactem.argo</groupId>
 		<artifactId>argo-starter-components</artifactId>
-		<version>0.4</version>
+		<version>0.5</version>
 	</parent>
 
 	<groupId>uk.ac.nactem.argo.components</groupId>
 	<artifactId>nactem-sentence-splitter</artifactId>
-	<version>1.0</version>
+	<version>1.0.1</version>
 
 	<name>Sentence Splitter</name>
 	<inceptionYear>2017</inceptionYear>
@@ -38,10 +38,6 @@
 		<name>The National Centre for Text Mining (NaCTeM)</name>
 		<url>http://nactem.ac.uk</url>
 	</organization>
-
-	<properties>
-		<component.descriptor>desc/uk/ac/nactem/argo/NactemSentenceSplitter.xml</component.descriptor>
-	</properties>
 
 	<licenses>
 		<license>
@@ -52,20 +48,53 @@
 		</license>
 	</licenses>
 
+	<dependencies>
+		<dependency>
+			<groupId>uk.ac.nactem.tools</groupId>
+			<artifactId>sentence-splitter</artifactId>
+			<version>1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.u_compare</groupId>
+			<artifactId>U_compareTypeSystem</artifactId>
+			<version>1.2.4</version>
+		</dependency>
+	</dependencies>
+
+	<profiles>
+		<profile>
+			<id>pear</id>
+
+			<properties>
+				<!-- This is the class of the component from which the PEAR file will 
+					be generated -->
+					
+				<uima.component.class>uk.ac.nactem.argo.sentencesplitter.NactemSentenceSplitter</uima.component.class>
+			</properties>
+
+			<dependencies>
+				<!-- !!! VERY IMPORTANT !!! -->
+				<!-- All type system dependencies must be redeclared here but with their 
+					<scope> value set to provided. This is to prevent the type systems being 
+					included inside the generated PEAR file; type systems should be independently 
+					installed into an Argo instance. If a type system gets included inside a 
+					PEAR file then workflow executions will normally fail, complaining of missing 
+					classes associated with UIMA types. -->
+				<!-- Eventually Argo should support installation of components and type 
+					systems from Maven, which will automatically deal with type system dependencies 
+					and avoid the need for this profile. -->
+				<dependency>
+					<groupId>org.u_compare</groupId>
+					<artifactId>U_compareTypeSystem</artifactId>
+					<version>1.2.4</version>
+					<scope>provided</scope>
+				</dependency>
+			</dependencies>
+		</profile>
+	</profiles>
+
 	<build>
 		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-dependency-plugin</artifactId>
-				<configuration>
-					<!-- Manually exclude type systems from the generated PEAR file -->
-					<excludeArtifactIds>U_compareTypeSystem,EventTypeSystem</excludeArtifactIds>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.uima</groupId>
-				<artifactId>PearPackagingMavenPlugin</artifactId>
-			</plugin>
 			<plugin>
 				<groupId>com.mycila</groupId>
 				<artifactId>license-maven-plugin</artifactId>
@@ -86,17 +115,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
-	<dependencies>
-		<dependency>
-			<groupId>uk.ac.nactem.tools</groupId>
-			<artifactId>sentence-splitter</artifactId>
-			<version>1.0</version>
-		</dependency>
-		<dependency>
-			<groupId>org.u_compare</groupId>
-			<artifactId>U_compareTypeSystem</artifactId>
-			<version>1.2.4</version>
-		</dependency>
-	</dependencies>
 </project>

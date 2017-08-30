@@ -22,6 +22,9 @@ import java.util.List;
 import org.apache.uima.analysis_component.JCasAnnotator_ImplBase;
 import org.apache.uima.analysis_engine.AnalysisEngineProcessException;
 import org.apache.uima.cas.text.AnnotationIndex;
+import org.apache.uima.fit.descriptor.LanguageCapability;
+import org.apache.uima.fit.descriptor.ResourceMetaData;
+import org.apache.uima.fit.descriptor.TypeCapability;
 import org.apache.uima.jcas.JCas;
 import org.apache.uima.jcas.tcas.Annotation;
 import org.u_compare.shared.document.text.Paragraph;
@@ -29,6 +32,16 @@ import org.u_compare.shared.syntactic.Sentence;
 
 import uk.ac.nactem.tools.sentencesplitter.EnglishSentenceSplitter;
 
+/**
+ * Uses a set of heuristics and patterns to find sentence boundaries. Works with
+ * English.
+ * 
+ * @author NaCTeM - National Centre of Text Mining
+ */
+@TypeCapability(inputs = { "org.u_compare.shared.document.text.Paragraph" }, outputs = {
+		"org.u_compare.shared.syntactic.Sentence" }) // Input and output annotation types
+@LanguageCapability({ "en" }) // Languages supported by this component
+@ResourceMetaData(name="NaCTeM Sentence Splitter")
 public class NactemSentenceSplitter extends JCasAnnotator_ImplBase {
 
 	private EnglishSentenceSplitter splitter = new EnglishSentenceSplitter();
