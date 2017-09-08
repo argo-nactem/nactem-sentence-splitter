@@ -24,7 +24,7 @@
 	<parent>
 		<groupId>uk.ac.nactem.argo</groupId>
 		<artifactId>argo-starter-components</artifactId>
-		<version>0.5</version>
+		<version>0.5.1</version>
 	</parent>
 
 	<groupId>uk.ac.nactem.argo.components</groupId>
@@ -33,11 +33,26 @@
 
 	<name>Sentence Splitter</name>
 	<inceptionYear>2017</inceptionYear>
+	<url>https://github.com/argo-nactem/nactem-sentence-splitter</url>
 	<description>Sentence splitter with output compatible with Scott Piao's version</description>
 	<organization>
 		<name>The National Centre for Text Mining (NaCTeM)</name>
 		<url>http://nactem.ac.uk</url>
 	</organization>
+	
+	<developers>
+		<developer>
+			<organization>NaCTeM</organization>
+			<organizationUrl>http://nactem.ac.uk</organizationUrl>
+		</developer>
+	</developers>
+
+	<scm>
+		<connection>scm:git:git://github.com/argo-nactem/nactem-sentence-splitter</connection>
+		<developerConnection>scm:git:git@github.com:argo-nactem/nactem-sentence-splitter.git</developerConnection>
+		<url>https://github.com/argo-nactem/nactem-sentence-splitter</url>
+		<tag>HEAD</tag>
+	</scm>
 
 	<licenses>
 		<license>
@@ -55,8 +70,8 @@
 			<version>1.0</version>
 		</dependency>
 		<dependency>
-			<groupId>org.u_compare</groupId>
-			<artifactId>U_compareTypeSystem</artifactId>
+			<groupId>uk.ac.nactem.uima</groupId>
+			<artifactId>UCompareTypeSystem</artifactId>
 			<version>1.2.4</version>
 		</dependency>
 	</dependencies>
@@ -68,7 +83,7 @@
 			<properties>
 				<!-- This is the class of the component from which the PEAR file will 
 					be generated -->
-					
+
 				<uima.component.class>uk.ac.nactem.argo.sentencesplitter.NactemSentenceSplitter</uima.component.class>
 			</properties>
 
@@ -84,8 +99,8 @@
 					systems from Maven, which will automatically deal with type system dependencies 
 					and avoid the need for this profile. -->
 				<dependency>
-					<groupId>org.u_compare</groupId>
-					<artifactId>U_compareTypeSystem</artifactId>
+					<groupId>uk.ac.nactem.uima</groupId>
+					<artifactId>UCompareTypeSystem</artifactId>
 					<version>1.2.4</version>
 					<scope>provided</scope>
 				</dependency>
